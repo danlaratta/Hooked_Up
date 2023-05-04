@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #e3e2e2;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,9 +15,8 @@ html {
 }
 
 :root {
-  --primary1: #1be29d;
-  --primary2: #0adbb5;
-  --primary3: #0bc197;
+  --primary: #0bc197;
+  --primary1: #099A86;
 }
 
 code {
