@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
-// import Logo1 from '../assets/Logo-Green-White1.svg';
+import Logo1 from '../assets/Logo-Green-White1.svg';
 // import Logo2 from '../assets/Logo-White-Green1.svg';
 import Logo3 from '../assets/Logo-Green-White2.svg';
 // import Logo4 from '../assets/Logo-White-Green2.svg';
@@ -111,7 +111,7 @@ const IconContainer = styled.div`
   font-size: 2.5rem;
 `
 
-const ProfileContainer = styled.div`
+const SectionContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -128,13 +128,34 @@ const Name = styled.span`
     font-weight: 500;
 `
 
+const ButtonContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2.5%;
+`
+
+const Button = styled.button`
+    width: 20%;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1rem 0rem;
+    border-radius: 1rem;
+    border: 0.2rem solid var(--primary);
+    cursor: pointer;
+`
+
 const Navbar = () => {
+
+    const [loggedIn, setLoggedIn] = useState<boolean>(false);
+
     return (
         <Container>
             <Wrapper>
                 <Section style={{flex: 3, justifyContent: 'flex-start'}}>
                     <LogoContainer>
-                        <NavLink to='/'> <Logo src={Logo3} alt='Logo' /> </NavLink>
+                        <NavLink to='/'> <Logo src={Logo1} alt='Logo' /> </NavLink>
                     </LogoContainer>
 
                     <SearchContainer>
@@ -203,10 +224,19 @@ const Navbar = () => {
                 </Section>
 
                 <Section style={{flex: 3, justifyContent: 'flex-end'}}>
-                    <ProfileContainer>
-                        <ProfileImg src={Me} />
-                        <Name> Dan </Name>
-                    </ProfileContainer>
+                    { loggedIn ? 
+                        <SectionContainer>
+                            <ProfileImg src={Me} />
+                            <Name> Dan </Name>
+                        </SectionContainer>
+
+                        :
+
+                        <ButtonContainer>
+                            <Button style={{backgroundColor: "#fff", color: "var(--primary"}}> Join </Button>
+                            <Button style={{backgroundColor: "var(--primary)", color: "#fff"}}> Sign In </Button>
+                        </ButtonContainer>
+                    }   
                 </Section>
             </Wrapper>
         </Container>
