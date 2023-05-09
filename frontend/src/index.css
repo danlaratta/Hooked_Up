@@ -17,6 +17,9 @@ html {
 :root {
   --primary: #0bc197;
   --primary1: #099A86;
+  --primary2: #001c43;
+  --gray: #e3e2e2;
+  --dark-gray: #5f6163;
 }
 
 code {

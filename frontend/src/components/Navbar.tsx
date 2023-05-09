@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components/macro';
-import { Link } from 'react-router-dom';
-import Logo1 from '../assets/Logo-Green-White1.svg';
-import Logo2 from '../assets/Logo-White-Green1.svg';
+import { NavLink } from 'react-router-dom';
+// import Logo1 from '../assets/Logo-Green-White1.svg';
+// import Logo2 from '../assets/Logo-White-Green1.svg';
 import Logo3 from '../assets/Logo-Green-White2.svg';
-import Logo4 from '../assets/Logo-White-Green2.svg';
+// import Logo4 from '../assets/Logo-White-Green2.svg';
+import Me from '../assets/Me.jpg'
 import { HiHome } from 'react-icons/hi';
 import { FaUserFriends } from 'react-icons/fa';
 import { IoSearch, IoFish, IoNotifications } from 'react-icons/io5';
@@ -12,6 +13,7 @@ import { GiBoatFishing } from 'react-icons/gi';
 
 const Container = styled.div`
     width: 100%;
+    /* background-color: var(--primary2); */
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -51,7 +53,7 @@ const SearchIcon = styled.div`
     top: 57%;
     left: 1rem;
     transform: translateY(-50%);
-    color: #5f6163;
+    color: var(--dark-gray);
     font-size: 1.4rem;
 ` 
 
@@ -64,7 +66,7 @@ const SearchBar = styled.input`
     background-color: #e3e2e2;
 
     ::placeholder {
-        color: #5f6163;
+        color: var(--dark-gray);
         opacity: 1;
     }
 `
@@ -77,27 +79,54 @@ const Nav = styled.div`
 
 const NavItem = styled.div`
     display: flex;
+    align-items: center;
+`
+
+const NavLinkContainer = styled.div`
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    color: var(--dark-gray);
+`
+
+const NavLinks = styled(NavLink)`
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
 
     &:hover {
         color: var(--primary);
         cursor: pointer;
     }
+
+    &.active {
+        color: var(--primary);
+    }
 `
 
 const IconContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
 `
 
-const NavLink = styled.div`
+const ProfileContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5%;
+`
+
+const ProfileImg = styled.img`
+    width: 10%;
+    border-radius: 50%;
+`
+
+const Name = styled.span`
     font-size: 1.4rem;
+    font-weight: 500;
 `
-
-
-
 
 const Navbar = () => {
     return (
@@ -105,7 +134,7 @@ const Navbar = () => {
             <Wrapper>
                 <Section style={{flex: 3, justifyContent: 'flex-start'}}>
                     <LogoContainer>
-                        <Logo src={Logo3} alt='Logo' />
+                        <NavLink to='/'> <Logo src={Logo3} alt='Logo' /> </NavLink>
                     </LogoContainer>
 
                     <SearchContainer>
@@ -115,51 +144,69 @@ const Navbar = () => {
                 </Section>
 
                 <Section style={{flex: 6, justifyContent: 'center'}}>
-                <Nav>
+                    <Nav>
                         <NavItem>
-                            <IconContainer>
-                                <HiHome />
-                            </IconContainer>
-
-                            <NavLink> Home </NavLink>
+                            <NavLinkContainer>
+                                <NavLinks to='/'> 
+                                    <IconContainer>
+                                        <HiHome />
+                                    </IconContainer>
+                                    Home 
+                                </NavLinks>
+                            </NavLinkContainer>
                         </NavItem>
 
                         <NavItem>
-                            <IconContainer>
-                                <FaUserFriends />
-                            </IconContainer>
-
-                            <NavLink> Friends </NavLink>
+                            <NavLinkContainer>
+                                <NavLinks to='/friends'> 
+                                    <IconContainer >
+                                        <FaUserFriends />
+                                    </IconContainer>
+                                    Friends 
+                                </NavLinks>
+                            </NavLinkContainer>
                         </NavItem>
 
                         <NavItem>
-                            <IconContainer>
-                                < IoFish />
-                            </IconContainer>
-
-                            <NavLink> Fish Log </NavLink>
+                            <NavLinkContainer>
+                                <NavLinks to='/fish-log'> 
+                                    <IconContainer>
+                                        < IoFish />
+                                    </IconContainer>
+                                    Fish Log 
+                                </NavLinks>
+                            </NavLinkContainer>
                         </NavItem>
 
                         <NavItem>
-                            <IconContainer style={{fontSize: '3rem'}}>
-                                <GiBoatFishing />
-                            </IconContainer>
-
-                            <NavLink> Events </NavLink>
+                            <NavLinkContainer>
+                                <NavLinks to='/events'> 
+                                    <IconContainer style={{fontSize: '3rem'}}>
+                                        <GiBoatFishing />
+                                    </IconContainer>
+                                    Events 
+                                </NavLinks>
+                            </NavLinkContainer>
                         </NavItem>
 
                         <NavItem>
-                            <IconContainer>
-                                <IoNotifications />
-                            </IconContainer>
-
-                            <NavLink> Notifcations </NavLink>
+                            <NavLinkContainer>
+                                <NavLinks to='/notifcations'> 
+                                    <IconContainer>
+                                        <IoNotifications />
+                                    </IconContainer>
+                                    Notifcations 
+                                </NavLinks>
+                            </NavLinkContainer>
                         </NavItem>
                     </Nav>
                 </Section>
 
                 <Section style={{flex: 3, justifyContent: 'flex-end'}}>
-                    
+                    <ProfileContainer>
+                        <ProfileImg src={Me} />
+                        <Name> Dan </Name>
+                    </ProfileContainer>
                 </Section>
             </Wrapper>
         </Container>
