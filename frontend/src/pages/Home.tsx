@@ -19,7 +19,6 @@ const Wrapper = styled.div`
 const Section = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: red;
 `
 
 const Home = () => {

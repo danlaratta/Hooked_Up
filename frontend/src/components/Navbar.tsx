@@ -2,10 +2,8 @@ import { useState } from 'react';
 import styled from 'styled-components/macro';
 import { NavLink } from 'react-router-dom';
 import Logo1 from '../assets/Logo-Green-White1.svg';
-// import Logo2 from '../assets/Logo-White-Green1.svg';
-import Logo3 from '../assets/Logo-Green-White2.svg';
-// import Logo4 from '../assets/Logo-White-Green2.svg';
-import Me from '../assets/Me.jpg'
+import Logo2 from '../assets/Logo-Green-White2.svg';
+import Me from '../assets/Me.jpg';
 import { HiHome } from 'react-icons/hi';
 import { FaUserFriends } from 'react-icons/fa';
 import { IoSearch, IoFish, IoNotifications } from 'react-icons/io5';
@@ -97,12 +95,12 @@ const NavLinks = styled(NavLink)`
     font-weight: 500;
 
     &:hover {
-        color: var(--primary);
+        color: teal;
         cursor: pointer;
     }
 
     &.active {
-        color: var(--primary);
+        color: teal;
     }
 `
 
@@ -143,7 +141,7 @@ const Button = styled.button`
     font-weight: 600;
     padding: 1rem 0rem;
     border-radius: 1rem;
-    border: 0.2rem solid var(--primary);
+    border: 0.2rem solid teal;
     cursor: pointer;
 `
 
@@ -235,7 +233,7 @@ const Navbar = () => {
 
                         <ButtonContainer>
                             <Button style={{backgroundColor: "#fff", color: "var(--primary"}}> Join </Button>
-                            <Button style={{backgroundColor: "var(--primary)", color: "#fff"}}> Sign In </Button>
+                            <Button style={{backgroundColor: "teal", color: "#fff"}}> Sign In </Button>
                         </ButtonContainer>
                     }   
                 </Section>
