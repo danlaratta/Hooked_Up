@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import styled from 'styled-components/macro';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Friends from './pages/Friends';
@@ -6,9 +7,14 @@ import FishLog from './pages/FishLog';
 import Events from './pages/Events';
 import Notifications from './pages/Notifications';
 
+const Container = styled.div`
+    width: 100%;
+    background-color: var(--gray);
+`
+
 const App = () => {
   return (
-    <div>
+    <Container>
       <Router>
         <Navbar />
 
@@ -21,7 +27,7 @@ const App = () => {
         </Routes>
       </Router>
       
-    </div>
+    </Container>
   );
 }
 

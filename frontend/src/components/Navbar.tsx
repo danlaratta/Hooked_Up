@@ -13,12 +13,13 @@ import { GiBoatFishing } from 'react-icons/gi';
 
 const Container = styled.div`
     width: 100%;
-    /* background-color: var(--primary2); */
     background-color: #fff;
+    box-shadow: 0rem 0.2rem 0.8rem #919090;
     display: flex;
     justify-content: center;
     position: sticky;
     top: 0;
+    z-index: 10;
 `
 
 const Wrapper = styled.div`
