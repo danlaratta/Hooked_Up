@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro';
 import ProfileCard from '../components/ProfileCard';
+import NewPost from '../components/NewPost';
 
 const Container = styled.div`
     width: 100%;
@@ -30,7 +31,7 @@ const Home = () => {
                 </Section>
 
                 <Section style={{flex: 7}}>
-                    dfadf
+                    <NewPost />
                 </Section>
 
                 <Section style={{flex: 2.5}}>
