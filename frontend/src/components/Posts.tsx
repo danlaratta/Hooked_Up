@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     padding: 2rem;
 `
 
@@ -78,7 +79,8 @@ const ContentSection = styled.div`
 `
 
 const Text = styled.p`
-    font-size: 1.4rem;
+    font-size: 1.6rem;
+    padding-bottom: 1rem;
 `
 
 const ContentImg = styled.img`
@@ -88,6 +90,31 @@ const ContentImg = styled.img`
     border-radius: 1rem;
 `
 
+const InteractionSection = styled.div`
+    flex: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 2rem;
+`
+
+const InteractionItem = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+`
+
+const InteractionText = styled.span`
+    font-size: 1.2rem;
+`
+
+const InteractionIcon = styled.div`
+    font-size: 2.2rem;
+    cursor: pointer;
+    color: teal;
+`
+
+/*
 const InteractionSection = styled.div`
     flex: 2;
     width: 100%;
@@ -121,14 +148,30 @@ const InteractionIcon = styled.div`
     cursor: pointer;
     color: teal;
 `
+*/
 
 const CommentSection = styled.div`
     background-color: teal;
 `
 
 const Posts = () => {
+
+    const [isLiked, setIsLiked] = useState<boolean>(false);
+    const [likes, setLikes] = useState<number>(123);
+    const [comments, setComments] = useState<number>(13);
+
+    const handleLikeClick = () => {
+        if(isLiked === true) {
+            setLikes(likes - 1);
+        }
+        else if(isLiked === false) {
+            setLikes(likes + 1);
+            console.log("Unliked");
+        }
+
+        setIsLiked(!isLiked);
+    }
     
-    const [isLiked, setIsLiked] = useState<boolean>(false)
 
     return (
         <Container>
@@ -147,12 +190,24 @@ const Posts = () => {
                 </TopSection>
 
                 <ContentSection> 
-                    <Text> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </Text>
+                    <Text> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s </Text>
 
                     <ContentImg src={Me} />
                 </ContentSection>
 
                 <InteractionSection> 
+                    <InteractionItem>
+                        <InteractionIcon onClick={handleLikeClick}> { isLiked ? <BsHandThumbsUpFill /> : <BsHandThumbsUp />} </InteractionIcon>
+                        <InteractionText> {likes} Likes </InteractionText>
+                    </InteractionItem>
+
+                    <InteractionItem>
+                        <InteractionIcon style={{transform: 'scaleX(-1)'}}> <BsChatDots /> </InteractionIcon>
+                        <InteractionText> {comments} Comments </InteractionText>
+                    </InteractionItem>
+                </InteractionSection>
+
+                {/* <InteractionSection> 
                     <InteractionItem>
                         <InteractionText> 123 Likes </InteractionText>
                         <InteractionText> 13 Comments </InteractionText>
@@ -164,7 +219,7 @@ const Posts = () => {
                         <InteractionIcon onClick={() => { setIsLiked(!isLiked) }}> { isLiked ? <BsHandThumbsUpFill /> : <BsHandThumbsUp />} </InteractionIcon>
                         <InteractionIcon style={{transform: 'scaleX(-1)', marginRight: '1.5rem'}}> <BsChatDots /> </InteractionIcon>
                     </InteractionItem>
-                </InteractionSection>
+                </InteractionSection> */}
 
                 <CommentSection>
 
