@@ -3,6 +3,9 @@ import Me from '../assets/Me.jpg';
 
 const Container = styled.div`
     width: 100%;
+    /* width: 80%;
+    display: flex;
+    justify-content: center; */
 `
 
 const Wrapper = styled.div`

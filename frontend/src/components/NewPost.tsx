@@ -50,10 +50,8 @@ const NewPost = () => {
                 <ProfileImg src={Me} />
                 
                 <Post onClick={() => setPostModal(!postModal)}> 
-                    <Placeholder> Share a post </Placeholder>
+                    <Placeholder> Share a post </Placeholder> 
                 </Post>
-
-                {postModal && <div> Test </div>}
             </Wrapper>
         </Container>
     );

@@ -15,18 +15,17 @@ const Container = styled.div`
 const App = () => {
   return (
     <Container>
-      <Router>
-        <Navbar />
+        <Router>
+          <Navbar />
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/friends' element={<Friends />} />
-          <Route path='/fish-log' element={<FishLog />} />
-          <Route path='/events' element={<Events />} />
-          <Route path='/notifications' element={<Notifications />} />
-        </Routes>
-      </Router>
-      
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/friends' element={<Friends />} />
+            <Route path='/fish-log' element={<FishLog />} />
+            <Route path='/events' element={<Events />} />
+            <Route path='/notifications' element={<Notifications />} />
+          </Routes>
+        </Router>
     </Container>
   );
 }
