@@ -102,6 +102,7 @@ const InteractionItem = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding-top: 1rem;
 `
 
 const InteractionText = styled.span`
@@ -151,8 +152,29 @@ const InteractionIcon = styled.div`
 */
 
 const CommentSection = styled.div`
-    background-color: teal;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-top: 0.15rem solid var(--border);
+    padding-top: 1rem;
 `
+
+const NewComment = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+`
+
+const CommentInput = styled.input`
+    width: 90%;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    border: 0.15rem solid #b2b2b2;
+    outline: none;
+`
+
 
 const Posts = () => {
 
@@ -222,7 +244,10 @@ const Posts = () => {
                 </InteractionSection> */}
 
                 <CommentSection>
-
+                    <NewComment>
+                        <ProfileImg src={Me} style={{width: '7%'}} />
+                        <CommentInput type='text' placeholder='Write a comment...' />
+                    </NewComment>
                 </CommentSection>
             </Wrapper>
         </Container>
