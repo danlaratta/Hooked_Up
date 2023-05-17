@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 import Me from '../assets/Me.jpg';
 import { BsThreeDots } from 'react-icons/bs';
 import { BsHandThumbsUpFill, BsHandThumbsUp, BsChatDots } from 'react-icons/bs';
+import Comment from './Comment';
 
 const Container = styled.div`
     width: 100%;
@@ -35,10 +36,11 @@ const LeftSection = styled.div`
 const PostInfo = styled.div`
     display: flex;
     flex-direction: column;
+    /* gap: 0.5rem; */
 `
 
 const User = styled.div`
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
 `
 
@@ -64,7 +66,7 @@ const IconContainer = styled.div`
 `
 
 const ProfileImg = styled.img`
-    width: 10%;
+    width: 15%;
     border-radius: 50%;
 `
 
@@ -105,14 +107,23 @@ const InteractionItem = styled.div`
     padding-top: 1rem;
 `
 
-const InteractionText = styled.span`
+const LikeText = styled.span`
     font-size: 1.2rem;
 `
 
-const InteractionIcon = styled.div`
+const LikeIcon = styled.div`
     font-size: 2.2rem;
     cursor: pointer;
     color: teal;
+`
+
+const CommentText = styled.span`
+    font-size: 1.2rem;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 `
 
 /*
@@ -151,9 +162,9 @@ const InteractionIcon = styled.div`
 `
 */
 
-const CommentSection = styled.div`
+const CommentSection = styled.div<ShowCommentsProps>`
     width: 100%;
-    display: flex;
+    display: ${props => props.showComments ? 'flex' : 'none'};
     flex-direction: column;
     border-top: 0.15rem solid var(--border);
     padding-top: 1rem;
@@ -168,18 +179,32 @@ const NewComment = styled.div`
 `
 
 const CommentInput = styled.input`
-    width: 90%;
+    width: 100%;
     padding: 1rem 2rem;
     border-radius: 1.5rem;
     border: 0.15rem solid #b2b2b2;
     outline: none;
 `
 
+const Comments = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+`
+
+
+
+type ShowCommentsProps = {
+    showComments: boolean
+}
 
 const Posts = () => {
 
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const [likes, setLikes] = useState<number>(123);
+    const [showComments, setShowComments] = useState<boolean>(false);
     const [comments, setComments] = useState<number>(13);
 
     const handleLikeClick = () => {
@@ -194,6 +219,9 @@ const Posts = () => {
         setIsLiked(!isLiked);
     }
     
+    const handleCommentClick = () => {
+        setShowComments(!showComments);
+    }
 
     return (
         <Container>
@@ -219,13 +247,12 @@ const Posts = () => {
 
                 <InteractionSection> 
                     <InteractionItem>
-                        <InteractionIcon onClick={handleLikeClick}> { isLiked ? <BsHandThumbsUpFill /> : <BsHandThumbsUp />} </InteractionIcon>
-                        <InteractionText> {likes} Likes </InteractionText>
+                        <LikeIcon onClick={handleLikeClick}> { isLiked ? <BsHandThumbsUpFill /> : <BsHandThumbsUp />} </LikeIcon>
+                        <LikeText> {likes} Likes </LikeText>
                     </InteractionItem>
 
                     <InteractionItem>
-                        <InteractionIcon style={{transform: 'scaleX(-1)'}}> <BsChatDots /> </InteractionIcon>
-                        <InteractionText> {comments} Comments </InteractionText>
+                        <CommentText onClick={handleCommentClick}> {comments} Comments </CommentText>
                     </InteractionItem>
                 </InteractionSection>
 
@@ -243,11 +270,18 @@ const Posts = () => {
                     </InteractionItem>
                 </InteractionSection> */}
 
-                <CommentSection>
+                <CommentSection showComments={showComments}>
                     <NewComment>
-                        <ProfileImg src={Me} style={{width: '7%'}} />
+                        <ProfileImg src={Me} style={{width: '9%'}} />
                         <CommentInput type='text' placeholder='Write a comment...' />
                     </NewComment>
+
+                    <Comments>
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                    </Comments>
                 </CommentSection>
             </Wrapper>
         </Container>
