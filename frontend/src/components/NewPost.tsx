@@ -19,15 +19,15 @@ const Wrapper = styled.div`
 `
 
 const ProfileImg = styled.img`
-    width: 6.5%;
+    width: 11.5%;
     border-radius: 50%;
 `
 
 const Post = styled.div`
-    width: 60%;
+    width: 81%;
     background-color: var(--gray);
     border-radius: 3rem;
-    padding: 1rem 3rem;
+    padding: 1.25rem 3rem;
     border: 0.2rem solid var(--border);
 
     &:hover {

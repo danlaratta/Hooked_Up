@@ -3,13 +3,12 @@ import Me from '../assets/Me.jpg';
 
 const Container = styled.div`
     width: 100%;
-    /* width: 80%;
     display: flex;
-    justify-content: center; */
+    justify-content: center;
 `
 
 const Wrapper = styled.div`
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     height: 55rem;
@@ -25,9 +24,10 @@ const ImageContainer = styled.div`
 `
 
 const ProfileImg = styled.img`
-    width: 40%;
+    width: 60%;
     border: 0.4rem solid #fff;
     border-radius: 50%;
+    margin-top: 1rem;
 `
 
 const ColorSection = styled.div`
@@ -55,7 +55,7 @@ const DataSection = styled.div`
 
 const Name = styled.h1`
     font-size: 2rem;
-    margin-top: 6rem;
+    margin-top: 5rem;
 `
 
 const DataItem = styled.div`
