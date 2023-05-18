@@ -4,6 +4,7 @@ import ProfileCard from '../components/ProfileCard';
 import NewPost from '../components/NewPost';
 import PostModal from '../components/PostModal';
 import Posts from '../components/Posts';
+import OnlineFriends from '../components/OnlineFriends';
 
 const Container = styled.div`
     width: 100%;
@@ -55,7 +56,7 @@ const Home = () => {
                 </Section>
 
                 <Section style={{flex: 2.5}}>
-                    dfad
+                    <OnlineFriends />
                 </Section>
             </Wrapper>
         </Container>

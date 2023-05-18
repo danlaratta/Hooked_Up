@@ -83,7 +83,6 @@ const ProfileCard = () => {
     return (
         <Container>
             <Wrapper>
-
                 <ImageContainer>
                     <ProfileImg src={Me} />
                 </ImageContainer>
