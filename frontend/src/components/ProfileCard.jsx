@@ -8,7 +8,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-    width: 80%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     height: 55rem;
@@ -18,16 +18,15 @@ const Wrapper = styled.div`
 const ImageContainer = styled.div`
     width: 100%;
     position: absolute;
-    top: 4rem;
+    top: 3rem;
     display: flex;
     justify-content: center;
 `
 
 const ProfileImg = styled.img`
-    width: 60%;
+    width: 55%;
     border: 0.4rem solid #fff;
     border-radius: 50%;
-    margin-top: 1rem;
 `
 
 const ColorSection = styled.div`
@@ -55,7 +54,8 @@ const DataSection = styled.div`
 
 const Name = styled.h1`
     font-size: 2rem;
-    margin-top: 5rem;
+    margin-top: 6rem;
+    padding: 1rem 0rem;
 `
 
 const DataItem = styled.div`

@@ -19,12 +19,12 @@ const Wrapper = styled.div`
 `
 
 const ProfileImg = styled.img`
-    width: 11.5%;
+    width: 9.7%;
     border-radius: 50%;
 `
 
 const Post = styled.div`
-    width: 81%;
+    width: 83%;
     background-color: var(--gray);
     border-radius: 3rem;
     padding: 1.25rem 3rem;

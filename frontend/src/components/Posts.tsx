@@ -36,7 +36,6 @@ const LeftSection = styled.div`
 const PostInfo = styled.div`
     display: flex;
     flex-direction: column;
-    /* gap: 0.5rem; */
 `
 
 const User = styled.div`

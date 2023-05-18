@@ -5,6 +5,7 @@ import NewPost from '../components/NewPost';
 import PostModal from '../components/PostModal';
 import Posts from '../components/Posts';
 import OnlineFriends from '../components/OnlineFriends';
+import Events from '../components/Events';
 
 const Container = styled.div`
     width: 100%;
@@ -14,7 +15,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-    width: 65%;
+    width: 75%;
     margin-top: 3rem;
     display: flex;
     justify-content: space-between;
@@ -56,6 +57,7 @@ const Home = () => {
                 </Section>
 
                 <Section style={{flex: 2.5}}>
+                    <Events />
                     <OnlineFriends />
                 </Section>
             </Wrapper>

@@ -25,9 +25,10 @@ const Title = styled.h1`
 
 const FriendsContainer = styled.div`
     width: 100%;
+    max-height: 58rem;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin-top: 1rem;
 `
 
@@ -36,7 +37,6 @@ const Friend = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
-    position: relative;
     padding: 1rem;
     border-radius: 1rem;
 
@@ -51,81 +51,73 @@ const ProfileImg = styled.img`
     border-radius: 50%;
 `
 
-const OnlineDot = styled.div`
-    height: 1.4rem;
-    width: 1.4rem;
-    background-color: #31a24c;
-    border: 0.22rem solid #fff;
-    border-radius: 50%;
-    position: absolute;
-    margin-left: 3.5rem;
-    margin-top: 4.5rem;
-`
-
 const Name = styled.span`
     font-size: 1.6rem;
     font-weight: 600;
 `
 
 const OnlineFriends = () => {
+
+    const friends = [
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+        {
+            name: 'Dan Laratta',
+            img: Me,
+        },
+    ]
+
     return (
         <Container>
             <Wrapper>
                 <Title> Online Friends </Title>
                 <FriendsContainer>
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
-
-                    <Friend>
-                        <ProfileImg src={Me} />
-                        <OnlineDot /> 
-                        <Name> Dan Laratta </Name>
-                    </Friend>
+                    {
+                        friends.map((friend) => (
+                            <Friend>
+                                <ProfileImg src={friend.img} />
+                                <Name> {friend.name} </Name>
+                            </Friend>
+                        ))
+                    }
                 </FriendsContainer>
                 
             </Wrapper>
